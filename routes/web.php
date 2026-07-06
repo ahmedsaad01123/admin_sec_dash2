@@ -13,7 +13,6 @@ use App\Core\Middleware\AdminAuthMiddleware;
 $router->get('/', 'Admin\AuthController@showLogin');
 $router->post('/login', 'Admin\AuthController@login');
 $router->post('/logout', 'Admin\AuthController@logout');
-$router->post('/switch-language', 'Admin\LanguageController@switch');
 
 // روتات محمية - تتطلب تسجيل دخول أدمن
 $router->get('/dashboard', 'Admin\DashboardController@index', ['middleware' => [AdminAuthMiddleware::class]]);

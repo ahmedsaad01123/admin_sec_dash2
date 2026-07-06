@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?></title>
+    <title><?= \App\Core\Security::e($title) ?></title>
 
     <style>
         * {
@@ -129,11 +129,11 @@
 
 <div class="box">
 
-    <h1><?= __('admin_login') ?></h1>
+    <h1><?= \App\Core\Security::e(__('admin_login')) ?></h1>
 
     <?php if (!empty($error)): ?>
         <div class="error-box">
-            <?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?>
+            <?= \App\Core\Security::e($error) ?>
         </div>
     <?php endif; ?>
 
@@ -141,15 +141,15 @@
 
         <input type="hidden"
                name="_csrf_token"
-               value="<?= htmlspecialchars($csrf_token, ENT_QUOTES, 'UTF-8') ?>">
+               value="<?= \App\Core\Security::e($csrf_token) ?>">
 
-        <label><?= __('username') ?></label>
+        <label><?= \App\Core\Security::e(__('username')) ?></label>
         <input type="text"
                name="username"
                required
                autofocus>
 
-        <label><?= __('password') ?></label>
+        <label><?= \App\Core\Security::e(__('password')) ?></label>
 
         <div class="password-wrapper">
 
@@ -202,7 +202,7 @@
         </div>
 
         <button type="submit">
-            <?= __('login') ?>
+            <?= \App\Core\Security::e(__('login')) ?>
         </button>
 
     </form>

@@ -1,94 +1,92 @@
-<!-- Welcome Card -->
-<div class="card">
-    <div class="card-body">
-        <div class="d-flex align-items-center gap-3">
-            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                <i class="fa fa-user-tie fa-2x"></i>
+<div class="max-w-7xl mx-auto">
+    <!-- Welcome Card -->
+    <div class="bg-white rounded-xl shadow-sm p-8 mb-6">
+        <div class="flex items-center gap-4 mb-4">
+            <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center">
+                <i class="fas fa-user-tie text-white text-2xl"></i>
             </div>
             <div>
-                <h3 class="card-title mb-1"><?= __('welcome') ?>، <?= htmlspecialchars($admin_name ?? 'Admin', ENT_QUOTES, 'UTF-8') ?></h3>
-                <p class="card-text text-muted"><?= __('welcome') ?></p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Stats Cards -->
-<div class="row mb-4">
-    <div class="col-md-6 col-lg-3 mb-3">
-        <div class="stat-card d-flex justify-content-between align-items-center">
-            <div>
-                <p class="text-muted mb-1">Users</p>
-                <h3 class="mb-0">0</h3>
-            </div>
-            <div class="text-primary">
-                <i class="fa fa-users fa-2x icon"></i>
+                <h1 class="text-2xl font-bold text-gray-800">مرحبًا بك، <?= htmlspecialchars($admin_name ?? 'Admin', ENT_QUOTES, 'UTF-8') ?></h1>
+                <p class="text-gray-600">أهلاً بك في لوحة التحكم</p>
             </div>
         </div>
     </div>
     
-    <div class="col-md-6 col-lg-3 mb-3">
-        <div class="stat-card d-flex justify-content-between align-items-center">
-            <div>
-                <p class="text-muted mb-1">Projects</p>
-                <h3 class="mb-0">0</h3>
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <div class="bg-white rounded-xl shadow-sm p-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-600 text-sm">المستخدمين</p>
+                    <p class="text-3xl font-bold text-gray-800">0</p>
+                </div>
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-users text-blue-600 text-xl"></i>
+                </div>
             </div>
-            <div class="text-success">
-                <i class="fa fa-project-diagram fa-2x icon"></i>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-sm p-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-600 text-sm">المشاريع</p>
+                    <p class="text-3xl font-bold text-gray-800">0</p>
+                </div>
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-project-diagram text-green-600 text-xl"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-sm p-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-600 text-sm">التقارير</p>
+                    <p class="text-3xl font-bold text-gray-800">0</p>
+                </div>
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-chart-bar text-purple-600 text-xl"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-sm p-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-600 text-sm">الإشعارات</p>
+                    <p class="text-3xl font-bold text-gray-800">0</p>
+                </div>
+                <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-bell text-yellow-600 text-xl"></i>
+                </div>
             </div>
         </div>
     </div>
     
-    <div class="col-md-6 col-lg-3 mb-3">
-        <div class="stat-card d-flex justify-content-between align-items-center">
-            <div>
-                <p class="text-muted mb-1">Reports</p>
-                <h3 class="mb-0">0</h3>
-            </div>
-            <div class="text-info">
-                <i class="fa fa-bar-chart fa-2x icon"></i>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-md-6 col-lg-3 mb-3">
-        <div class="stat-card d-flex justify-content-between align-items-center">
-            <div>
-                <p class="text-muted mb-1">Notifications</p>
-                <h3 class="mb-0">0</h3>
-            </div>
-            <div class="text-warning">
-                <i class="fa fa-bell fa-2x icon"></i>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Quick Actions -->
-<div class="card">
-    <div class="card-body">
-        <h4 class="card-title mb-3">Quick Actions</h4>
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <a href="/profile" class="btn btn-outline-primary w-100 text-start">
-                    <i class="fa fa-cog"></i> <?= __('change_password') ?>
-                </a>
-            </div>
-            <div class="col-md-4 mb-3">
-                <a href="#" class="btn btn-outline-success w-100 text-start">
-                    <i class="fa fa-plus"></i> Add User
-                </a>
-            </div>
-            <div class="col-md-4 mb-3">
-                <a href="#" class="btn btn-outline-info w-100 text-start">
-                    <i class="fa fa-file-alt"></i> View Reports
-                </a>
-            </div>
+    <!-- Quick Actions -->
+    <div class="bg-white rounded-xl shadow-sm p-6">
+        <h2 class="text-xl font-bold text-gray-800 mb-4">إجراءات سريعة</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <a href="/profile" class="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                <div class="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
+                    <i class="fas fa-cog text-white"></i>
+                </div>
+                <span class="font-semibold text-gray-800">تغيير كلمة المرور</span>
+            </a>
+            
+            <a href="#" class="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-plus text-white"></i>
+                </div>
+                <span class="font-semibold text-gray-800">إضافة مستخدم جديد</span>
+            </a>
+            
+            <a href="#" class="flex items-center gap-3 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                <div class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-file-alt text-white"></i>
+                </div>
+                <span class="font-semibold text-gray-800">عرض التقارير</span>
+            </a>
         </div>
     </div>
 </div>
-
-<style>
-    .stat-card { padding: 20px; border-radius: 8px; background: #fff; border: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px; }
-    .stat-card .icon { font-size: 32px; opacity: 0.8; }
-</style>

@@ -60,4 +60,19 @@ final class Security
     {
         return password_verify($password, $hash);
     }
+    /**
+     * Escape آمن للعرض في الـ Views (مصمم خصيصاً PHP 8.4)
+     * استخدمها إجبارياً بدل echo المباشر
+     */
+    public static function e(?string $input, string $context = 'html'): string
+    {
+        if ($input === null) return '';
+        
+        // منع إدخال الجافا سكريبت عبر الـ Data URIs
+        if (strpos($input, 'data:text/html') !== false) {
+            return '';
+        }
+        
+        return htmlspecialchars($input, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5, 'UTF-8');
+    }    
 }
