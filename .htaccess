@@ -1,0 +1,22 @@
+# =====================================================================
+# ملاحظة مهمة: الأفضل إن الـ Document Root بتاع السيرفر يتوجه مباشرة
+# لمجلد public/ من إعدادات الاستضافة أو الـ Vhost.
+# الملف ده مجرد طبقة حماية إضافية (Fallback) في حالة إن الدومين
+# بيشاور على المجلد الرئيسي للمشروع مش على public/ مباشرة.
+# =====================================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # لو الطلب مش داخل مجلد public أصلاً، وجهه لمجلد public
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# منع الوصول المباشر لأي ملفات حساسة لو حد حاول يفتحها بالرابط
+<FilesMatch "\.(env|env\.example|json|lock|md|sql|log|gitignore|htaccess)$">
+    Require all denied
+</FilesMatch>
+
+# منع عرض محتويات المجلدات
+Options -Indexes

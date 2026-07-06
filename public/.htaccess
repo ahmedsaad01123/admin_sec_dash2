@@ -1,0 +1,28 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # لو الملف أو المجلد المطلوب مش موجود فعليًا، حوّل الطلب لـ index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# إخفاء معلومات السيرفر لتقليل المعلومات المسربة للمهاجمين
+ServerSignature Off
+Options -Indexes -MultiViews
+
+# هيدرز حماية أساسية
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# منع تنفيذ ملفات PHP داخل مجلد الأصول (لو حد رفع ملف ضار باسم صورة مثلاً)
+<IfModule mod_php.c>
+    <FilesMatch "\.(jpg|jpeg|png|gif|css|js|svg|woff|woff2)$">
+        php_flag engine off
+    </FilesMatch>
+</IfModule>

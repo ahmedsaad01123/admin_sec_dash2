@@ -1,0 +1,11 @@
+ALTER TABLE users
+ADD COLUMN IF NOT EXISTS avatar VARCHAR(255) NULL AFTER password;
+
+ALTER TABLE users
+ADD COLUMN IF NOT EXISTS last_login_ip VARCHAR(45) NULL AFTER last_login_at;
+
+ALTER TABLE users
+ADD COLUMN IF NOT EXISTS updated_by BIGINT UNSIGNED NULL AFTER updated_at;
+
+CREATE INDEX IF NOT EXISTS idx_users_phone
+ON users(phone);
